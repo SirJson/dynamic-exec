@@ -1,9 +1,8 @@
 <img src="assets/simple-exec.png" width="100" />
 
-# SimpleExec
+# SimpleExec (with dynamic dispatch PoC)
 
-_[![NuGet version](https://img.shields.io/nuget/v/SimpleExec.svg?style=flat)](https://www.nuget.org/packages/SimpleExec)_
-_[![Build status](https://github.com/adamralph/simple-exec/workflows/.github/workflows/ci.yml/badge.svg)](https://github.com/adamralph/simple-exec/actions)_
+This fork of SimpleExec is a proof of concept for creating a python-sh like API in C#. See DynamicExample and Shell.cs.
 
 SimpleExec is a [.NET library](https://www.nuget.org/packages/SimpleExec) that runs external commands. It wraps [`System.Diagnostics.Process`](https://apisof.net/catalog/System.Diagnostics.Process) to make things easier.
 
@@ -61,6 +60,9 @@ Sometimes, for whatever wonderful reasons, it's necessary to run a different com
 Run("yarn", windowsName: "cmd", windowsArgs: "/c yarn");
 ```
 
----
-
-<sub>[Run](https://thenounproject.com/term/target/975371) by [Gregor Cresnar](https://thenounproject.com/grega.cresnar/) from [the Noun Project](https://thenounproject.com/).</sub>
+### Dynamic dispatch
+```C#
+dynamic sh = new Shell();
+sh.ping("cabal");
+Console.WriteLine(sh.ssh("kane@cabal","--","df -h"));
+```

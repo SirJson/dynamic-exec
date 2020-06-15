@@ -9,6 +9,7 @@ namespace SimpleExec
     /// Contains methods for running commands and reading standard output (stdout).
     /// </summary>
     public static class Command
+
     {
         /// <summary>
         /// Runs a command.
