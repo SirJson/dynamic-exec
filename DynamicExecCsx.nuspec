@@ -3,8 +3,8 @@
   <metadata>
     <id>DynamicExecCsx</id>
     <version>6.0.0</version>
-    <authors>>SirJson, adamralph</authors>
-    <owners>>SirJson, adamralph</owners>
+    <authors>SirJson, adamralph</authors>
+    <owners>SirJson, adamralph</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://raw.githubusercontent.com/adamralph/simple-exec/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/SirJson/dynamic-exec</projectUrl>
