@@ -1,4 +1,4 @@
-namespace SimpleExec
+namespace DynamicExec
 {
     using System.Reflection;
 
@@ -8,6 +8,6 @@ namespace SimpleExec
         {
         }
 
-        public static readonly string Value = Assembly.GetEntryAssembly()?.GetName().Name ?? "SimpleExec";
+        public static readonly string Value = Assembly.GetEntryAssembly()?.GetName().Name ?? "DynamicExec";
     }
 }

@@ -1,4 +1,4 @@
-namespace SimpleExec
+namespace DynamicExec
 {
     using System;
     using System.Collections.Generic;

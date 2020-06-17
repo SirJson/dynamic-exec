@@ -1,4 +1,4 @@
-namespace SimpleExec
+namespace DynamicExec
 {
     using System;
     using System.Collections.Generic;
@@ -33,11 +33,10 @@ namespace SimpleExec
         /// By default, the resulting command line and the working directory (if specified) are echoed to standard error (stderr).
         /// To suppress this behavior, provide the <paramref name="noEcho"/> parameter with a value of <c>true</c>.
         /// </remarks>
-        public Shell(string workingDirectory = null, bool noEcho = false, bool async = false, string windowsName = null, string windowsArgs = null, string echoPrefix = null, Action<IDictionary<string, string>> configureEnvironment = null)
+        public Shell(string workingDirectory = null, bool noEcho = false, string windowsName = null, string windowsArgs = null, string echoPrefix = null, Action<IDictionary<string, string>> configureEnvironment = null)
         {
             this.workingDirectory = workingDirectory;
             this.noEcho = noEcho;
-            this.async = async;
             this.windowsName = windowsName;
             this.windowsArgs = windowsArgs;
             this.echoPrefix = echoPrefix;
@@ -68,12 +67,8 @@ namespace SimpleExec
                                 .Aggregate((a, b) => $"{a} {b}");
             }
 
-            if(async) {
-                result = Command.ReadAsync($"{binder.Name}.exe", commandline, workingDirectory,noEcho,windowsName,windowsArgs,echoPrefix,configureEnvironment);
-            }
-            else {
-                result = Command.Read($"{binder.Name}.exe", commandline, workingDirectory,noEcho,windowsName,windowsArgs,echoPrefix,configureEnvironment);
-            }
+
+            result = Command.Launch($"{binder.Name}.exe", commandline, workingDirectory,noEcho,windowsName,windowsArgs,echoPrefix,configureEnvironment);
             return true;
         }
     }
